@@ -1,2 +1,2 @@
-# Ation-Installer
-Ation Installer
+# AtionInstaller
+AtionInstaller
