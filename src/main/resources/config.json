@@ -1,0 +1,48 @@
+{
+  "inheritsFrom": "${gameVersion}",
+  "id": "Ation-${gameVersion}-${loaderVersion}",
+  "jar": "${gameVersion}",
+  "time": "${formattedTime}",
+  "type": "release",
+  "arguments": {
+    "game": [
+      "--tweakClass",
+      "io.github.ationmc.loader.launch.Tweaker"
+    ]
+  },
+  "mainClass": "net.minecraft.launchwrapper.Launch",
+  "libraries": [
+    {
+      "name": "org.spongepowered:mixin:0.8.5",
+      "url": "https://repo.spongepowered.org/repository/maven-public/"
+    },
+    {
+      "name": "org.ow2.asm:asm:9.2",
+      "url": "https://repo1.maven.org/maven2/"
+    },
+    {
+      "name": "org.ow2.asm:asm-tree:9.2",
+      "url": "https://repo1.maven.org/maven2/"
+    },
+    {
+      "name": "org.ow2.asm:asm-commons:9.2",
+      "url": "https://repo1.maven.org/maven2/"
+    },
+    {
+      "name": "org.ow2.asm:asm-util:9.2",
+      "url": "https://repo1.maven.org/maven2/"
+    },
+    {
+      "name": "org.ow2.asm:asm-analysis:9.2",
+      "url": "https://repo1.maven.org/maven2/"
+    },
+    {
+      "name": "io.github.ationmc:LaunchWrapper:0.0.1-alpha",
+      "url": "https://ationmc.github.io/maven/"
+    },
+    {
+      "name": "io.github.ationmc:AtionLoader:${loaderVersion}",
+      "url": "https://ationmc.github.io/maven/"
+    }
+  ]
+}

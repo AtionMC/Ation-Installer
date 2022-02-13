@@ -1,0 +1,44 @@
+import java.text.SimpleDateFormat
+
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+archivesBaseName = project.main_name
+version = project.main_version
+group = project.main_group
+
+targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8
+
+jar {
+    manifest.attributes(
+            'Manifest-Version': 1.0,
+            'Main-Class': 'io.github.ationmc.installer.Main',
+            "Implementation-Title": "${project.name}",
+            "Implementation-Version": "${project.version}",
+            "Implementation-Vendor": "${project.group}",
+            "Implementation-Timestamp": new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())
+    )
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation("com.formdev:flatlaf:1.5")
+    implementation("com.formdev:flatlaf-intellij-themes:1.5")
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('com.google.code.gson:gson'))
+        include(dependency("com.formdev:flatlaf:1.5"))
+        include(dependency("com.formdev:flatlaf-intellij-themes:1.5"))
+    }
+}
+
+build.dependsOn shadowJar
